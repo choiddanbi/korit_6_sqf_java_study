@@ -3,10 +3,10 @@ package com.study.java_study.ch02_클래스01;
 public class ObjectMain {
 
     public static void main(String[] args) {
-        int a = 10; // 10의 주소 !!
+        int a = 10;
 
         // 내가 만든 ObjectA 클래스 가져와
-        ObjectA objectA1 = new ObjectA(); // 메모리(주소) 할당 ! 새로운 ObjectA() 주소를 objectA1 에 담아라 ex) 주소 100번
+        ObjectA objectA1 = new ObjectA(); // 메모리(주소)할당 ! 새로운 ObjectA() 주소를 objectA1 에 담아라 ex) 주소 100번
         ObjectA objectA2 = new ObjectA(); // 주소 200번
 
         System.out.println(a);
