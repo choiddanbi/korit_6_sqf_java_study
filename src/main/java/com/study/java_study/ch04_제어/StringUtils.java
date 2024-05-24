@@ -12,6 +12,8 @@ public class StringUtils {
 }*/
 
 
+// str의 주소가 null 이면 true 를 return하고
+// str의 주소가 null 이 아니면 str의 값이 "" 인가 비교해서 공백이면 true 를 리턴 (boolean) 해서 main 문으로
  public class StringUtils {
      boolean isEmpty(String str) {
          if (str == null) {
