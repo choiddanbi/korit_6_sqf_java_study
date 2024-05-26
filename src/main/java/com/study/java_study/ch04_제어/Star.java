@@ -12,7 +12,11 @@ public class Star { // 5줄 이면 *은 최대 5개
         */
 
         for(int i = 0; i < 5; i++) { // 5줄, 6줄짜리는 i<6이랑 ""의 j < 6 - 1 - i
+<<<<<<< HEAD
             for (int j = 0; j < 5 - 1 - i; j++) {
+=======
+            for (int j = 0; j < 5 - 1 - i; j++) { // 5-i하면 마지막줄 맨 앞에 공백 하나 등어감
+>>>>>>> 37ed9506112353cf51531dc2b90ebc9979b62b5c
                 System.out.print(" ");
             }
             for (int j = 0; j < i + 1; j++) {
