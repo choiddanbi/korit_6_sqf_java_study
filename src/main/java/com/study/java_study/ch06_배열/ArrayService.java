@@ -36,40 +36,68 @@ public class ArrayService {
                     names[names.length - 1] = scanner.nextLine(); // 새로운 배열 마지막 인덱스에 값 넣기
                     System.out.println("등록 완료!");
                     break;
+
                 case "2": // 이름 중복이 있을 경우 맨 앞의 애를 수정
                     System.out.println("[이름 수정]");
-                    String result = null;
-                    String findName = scanner.nextLine();
-                    for (String name : names) {
-                        if (name.equals(findName)) { // ??
+                    System.out.println("수정 하고 싶은 이름: ");
+                    String before = scanner.nextLine();
 
-
+                    boolean check = false;
+                    for (int i = 0; i < names.length; i++) {
+                        if (before.equals(names[i])) {
+                            System.out.println("변경 후 이름: ");
+                            String after = scanner.nextLine();
+                            names[i] = after;
+                            check = true;
                             break;
                         }
                     }
+                    if (check) {
+                        System.out.println("이름이 수정되었습니다.");
+                    } else {
+                        System.out.println("등록되지 않은 이름입니다.");
+                    }
 
                     break;
+
                 case "3": // 이름 중복이 있을 경우 맨 앞의 애를 삭제
                     System.out.println("[이름 삭제]");
                     System.out.println("삭제 할 이름을 입력하세요: ");
-                    findName = scanner.nextLine(); // 이름 입력
-                    for (int i = 0; i < names.length; i++) {
-                        if (names.equals(findName)) {
-                            System.out.println("이름을 삭제합니다.");
-                            
-                            break;
-                        }
+                    String delete = scanner.nextLine();
 
+                    check = false;
+
+                    String[] Delete_Name = new String[names.length - 1];
+                    int x = 0;
+
+                    for (int i = 0; i < names.length ; i++) {
+                        if (delete.equals(names[i])) { // 입력값 중 name 에 일치하는 값이 있을때
+                            System.out.println("이름을 삭제합니다.");
+                            if (delete != names[i]) { // 입력값이 name 에 없는 애들을 Delete_Name 으로 이사한다
+                                Delete_Name[x] = names[i];
+                                names = Delete_Name;
+                                x++;
+                                check = true;
+                                break;
+                            }
+                        }
                     }
 
-                    break;
+                        if (check) {
+                            System.out.println("이름이 삭제되었습니다.");
+                        } else {
+                            System.out.println("등록되지 않은 이름입니다.");
+                        }
+
+                        break;
+
+
                 case "4":
                     System.out.println("[이름 찾기]");
                     System.out.print("조회 할 이름: ");
-                    // String result = null;
-                    // String findName = scanner.nextLine();
-                    result = null;
-                    findName = scanner.nextLine();
+                    String result = null;
+                    String findName = scanner.nextLine();
+
                     for (String name : names) {
                         if (name.equals(findName)) { // ??
                             result = name;
