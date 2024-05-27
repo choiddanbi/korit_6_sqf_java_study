@@ -1,6 +1,7 @@
 package com.study.java_study.ch04_제어;
 
-public class For01 { // 반복문 For_순서대로 일정하게 반복, 순서대로 증가..? // while_순서없는 조건에 따른 반복
+// 반복문 For_순서대로 일정하게 반복, 순서대로 증가..? // while_순서없는 조건에 따른 반복
+public class For01 {
 
     public static void main(String[] args) {
         /* 1 ~ 10000까지
