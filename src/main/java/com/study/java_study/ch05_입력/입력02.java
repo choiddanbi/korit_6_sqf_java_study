@@ -6,7 +6,7 @@ public class 입력02 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); // Scanner 라는 클래스를 가져다 씀
 
-        // next 는 스페이스,엔터 무시
+        // nextline은 스페이스,엔터 무시
         // next 는 스페이스,엔터 인식
         String name = null; // next()
         int age = 0; // nextInt()
