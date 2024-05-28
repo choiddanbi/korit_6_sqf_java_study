@@ -74,18 +74,18 @@ public class BookService { // 기능 클래스
             System.out.print(title + "명 입력 : ");
             value = scanner.nextLine();
             if (!value.isBlank()) { // blank : 띄어쓰기 미포함_띄어쓰기도 공백으로 본다 (문자열객체에서 사용) , empty : 띄어쓰기 포함
-                break;
+                break; // return value; 로 감
             }
-            System.out.println(title + "명은 공백일 수 없습니다. 다시 입력하세요");
+            System.out.println(title + "명은 공백일 수 없습니다. 다시 입력하세요"); // 다시 while문으로 감
         }
-        return value;
+        return value; // value = 내가 입력한 거
     }
 
     // 메서드 4. 중복체크
     private String duplicateBookName() {
         String bookName = null;
         while (true) {
-            bookName = validateValue("도서"); // 공백체크
+            bookName = validateValue("도서"); // 내가 입력한 도서명(value)을 bookName에 넣기
             // 도서명 중복체크
             if (bookRepository.findBookByBookName(bookName) == null) {
                 // blank : 띄어쓰기 미포함_띄어쓰기도 공백으로 본다 (문자열객체에서 사용) , empty : 띄어쓰기 포함
@@ -98,15 +98,15 @@ public class BookService { // 기능 클래스
 
 
 
-    // 메서드 5.
+    // 메서드 5. 도서 등록
     private void registerBook() {
         System.out.println("[ 도서 등록 ]");
         int bookId = bookRepository.autoIncrementBookId();
         String bookName = duplicateBookName();
-        String author = validateValue("저자");
-        String publisher = validateValue("출판사");
+        String author = validateValue("저자"); // validateValue 에서 키보드로 입력받음
+        String publisher = validateValue("출판사"); // validateValue 에서 키보드로 입력받음
 
-        BookEntity book = new BookEntity(bookId, bookName, author, publisher); // book 객체 생성 !
+        BookEntity book = new BookEntity(bookId, bookName, author, publisher); // book 객체 생성 ! > BookEntity클래스의 생성자 쓰려고 ~
         bookRepository.saveBook(book); // 도서 등록 !!
         System.out.println("새로운 도서를 등록하였습니다.");
     }

@@ -80,12 +80,12 @@ public class BookRepository {
         BookEntity findBook = null;
 
         for(BookEntity book : books) { // books 에 있는 인덱스 값들 하나씩을 BookEntity 자료형인 book에 넣ㅇ어라
-            if (book.getBookName().equals(bookName)) { // String bookName 과 배열이 같다면
-                findBook = book;
+            if (book.getBookName().equals(bookName)) { // 내가 입력한 도서명(value or bookName)이 books배열안의 어떤 인덱스와 같다면
+                findBook = book; // 그 books배열의 인덱스(book) 을 findBook 에 넣어라
                 break;
             }
         }
-        return findBook;
+        return findBook; // findBook = 내가 찾으려는 이름의 책!!
     }
 
 
