@@ -179,7 +179,7 @@ public class ArrayService {
                             newNames[i] = names[i]; // 그냥 이사
                             continue; // 계속 이사 ~
                         }
-                        newNames[i] = names[i + 1]; // 기존에 있는 애 중 하나 큰 애를 이사 ~ ( 찾는 값은 이사하면 안되니까 )
+                        newNames[i] = names[i + 1]; // 찾는 값이 있으면 지우고 ㄷㅏ음꺼를 이사 !
                     }
                     names = newNames;
                     System.out.println(removeName + "을(를) 삭제하였습니다.");
@@ -192,7 +192,7 @@ public class ArrayService {
                     // String result = null;
                     String findName = scanner.nextLine();
                     // result = null;
-                    findName = scanner.nextLine();
+                    // findName = scanner.nextLine();
                     findIndex = arrayUtils.findIndexByName(names, findName);
                     if (findIndex == -1) {
                         System.out.println("해당 이름은 존재하지 않는 이름입니다.");

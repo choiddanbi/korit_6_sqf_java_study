@@ -12,8 +12,6 @@ public class Gugudan {
         [9단]
         ...
          */
-<<<<<<< HEAD
-=======
 
         for ( int i = 0; i < 8; i++ ) {
             int dan = i + 2;
@@ -23,6 +21,5 @@ public class Gugudan {
                 System.out.println( dan + "X" + num + "= " + dan*num);
             }
         }
->>>>>>> 37ed9506112353cf51531dc2b90ebc9979b62b5c
     }
 }
