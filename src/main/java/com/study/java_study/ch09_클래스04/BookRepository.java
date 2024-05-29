@@ -1,5 +1,5 @@
 package com.study.java_study.ch09_클래스04;
-
+import java.awt.print.Book;
 
 // DB에 들어갈 것들 ?
 // 정보 저장소 -> CRUD // 생성 읽기 업로드 삭제
@@ -27,7 +27,7 @@ public class BookRepository {
         BookEntity[] newBooks = new BookEntity[books.length + 1];
 
         // 기본 배열의 정보를 새로운 배열로 모두 이사! 이때 마지막 인덱스의 값은 빈값
-        for(int i=0; i < books.length; i++) {
+        for (int i = 0; i < books.length; i++) {
             newBooks[i] = books[i];
         }
         books = newBooks; // 기존의 배열의 주소가 들어있는 books 변수에 새로운 배열의 주소를 대입_다시 원복 !!
@@ -56,36 +56,38 @@ public class BookRepository {
     // book 을 찾으면 BookEntity 로 return 해준다는 뜻 !
     // 선형탐색 > 하나씩 끝까지 비교하면서 찾음, 트리 > 기준 잡고(?) 찾기
     // 메서드 표현법 => public static 리턴타입 메서드명(매개변수) { }
-      public BookEntity findBookByBookId(int bookId) {
+    public BookEntity findBookByBookId(int bookId) {
         BookEntity findBook = null; // 책을 찾았나 못찾았나 확인하려고, 변수?
         // 선형탐색, for-each 문 사용
         // BookEntity bookEntity = new BookEntity(); 왜 안해줌 ???
         // -> BookEntity 는 클래스를 가져다 쓴다는게 아니고 BookEntity 라는 자료형을 표시해준거니까
-        for(BookEntity book : books) { // books[0 1 2...]를 book 에 대입해서 if문 !! > books 배열 안에 인덱스 하나하나들이 book ~
-            if(book.getBookId() == bookId) { // int bookId 와 book객체 안에 BookId 값이 같다면
+        for (BookEntity book : books) { // books[0 1 2...]를 book 에 대입해서 if문 !! > books 배열 안에 인덱스 하나하나들이 book ~
+            if (book.getBookId() == bookId) { // int bookId 와 book객체 안에 BookId 값이 같다면
                 findBook = book; // book 객체를 findBook 에 넣어라
                 break;
             }
+            // 없으면 findBook = null;
         }
         return findBook;
     }
 
 
     // 메서드4. bookName 으로 원하는 book 객체 찾기
-    // 단건조회 : 중복되는 이름이 없다는 가정하에 하나만 !! > 중복체크 필수
+    // 단건조회 : 도서명들끼리 중복되는 이름이 없다는 가정하에 하나만 !! > 중복체크 필수
     // BookEntity 로 리턴 !! - 변수로 1개만 리턴받음
     // 여러개 리턴 받고싶으면 배열로 리턴 받아야함
     // 중복체크에서 사용
     public BookEntity findBookByBookName(String bookName) { // 매개변수 bookName, 리턴은 BookEntity 이름을 find~
         BookEntity findBook = null;
 
-        for(BookEntity book : books) { // books 에 있는 인덱스 값들 하나씩을 BookEntity 자료형인 book에 넣ㅇ어라
+        for (BookEntity book : books) { // books[] 에 있는 인덱스 값들 하나씩을 BookEntity 자료형인 book에 넣ㅇ어라
             if (book.getBookName().equals(bookName)) { // 내가 입력한 도서명(value or bookName)이 books배열안의 어떤 인덱스와 같다면
                 findBook = book; // 그 books배열의 인덱스(book) 을 findBook 에 넣어라
                 break;
             }
+            // 없으면 findBook = null @@
         }
-        return findBook; // findBook = 내가 찾으려는 이름의 책!!
+        return findBook; // findBook = 내가 찾으려는 이름의 책!! duplicateBookName 의 bookName 으로 감?????
     }
 
 
@@ -96,7 +98,7 @@ public class BookRepository {
         int newArraySize = 0;
 
         switch (option) {
-            case 1: // 검색
+            case 1: // 통합검색
                 for (BookEntity book : books) {
                     if (book.getBookName().contains(searchText) // books 배열에서 book 을 꺼냈을떄 getBookName()문자열에 bookName문자열이 포함된 게 있으면
                             || book.getAuthor().contains(searchText)
@@ -134,7 +136,6 @@ public class BookRepository {
     }
 
 
-
     // 메서드6. BookName, Author, Publisher 로 원하는 book 찾고, searchbooks 배열로 이사 !
     // 다건조회
     // ex) A 라고 조회하면 책이름 or 출판사명에 a가 들어간 게 여러개 일 수 있으니까
@@ -146,7 +147,7 @@ public class BookRepository {
      이렇게 값이 들어간거다 ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ */
     public BookEntity[] searchBooks(int option, String searchText) { // 리턴은 배열이고 이름을 searchBook 으로
 
-        int newArraySize = getNewArraySize(option, searchText); // 찾아서 배열에 넣기 위해서 ! 검색된 책이 몇권인지..
+        int newArraySize = getNewArraySize(option, searchText); // 찾아서 배열에 넣기 위해서 배열 사이즈 체크! 검색된 책이 몇권인지..
         BookEntity[] searchBooks = new BookEntity[newArraySize]; // searchBooks[newArraySize] 새로운 배열 생성
 
         // 전체 배열에서 조건에 맞는 배열을 찾아서 searchBooks 에 넣기
@@ -155,19 +156,20 @@ public class BookRepository {
         // 여러 case 중에서 하나만 선택해서 동작
         switch (option) {
             case 1: // 통합검색
-                for(BookEntity book : books) {
+                for (BookEntity book : books) {
                     if (book.getBookName().contains(searchText) // books에서 book 을 꺼냈을떄 getBookName()문자열에 bookName문자열이 포함된 게 있으면
                             || book.getAuthor().contains(searchText)
                             || book.getPublisher().contains(searchText)) {
                         searchBooks[i] = book; // searchBooks배열에 해당 books인덱스에 있는 값 넣기
-                        i++; // 새로 만든 배열의 인덱스 증가 !
+                        i++; // 새로 만든 배열의 인덱스 증가 ! 하면서 if 문 계속~
                     }
+                    // 일치하는게 없으면 break;
                 }
-                    break;
+                break;
 
 
             case 2: // 도서명검색
-                for(BookEntity book : books) {
+                for (BookEntity book : books) {
                     if (book.getBookName().contains(searchText)) {
                         searchBooks[i] = book;
                         i++;
@@ -176,7 +178,7 @@ public class BookRepository {
                 break;
 
             case 3: // 저자명검색
-                for(BookEntity book : books) {
+                for (BookEntity book : books) {
                     if (book.getAuthor().contains(searchText)) {
                         searchBooks[i] = book;
                         i++;
@@ -185,7 +187,7 @@ public class BookRepository {
                 break;
 
             case 4: // 출판사명검색
-                for(BookEntity book : books) {
+                for (BookEntity book : books) {
                     if (book.getPublisher().contains(searchText)) {
                         searchBooks[i] = book;
                         i++;
@@ -194,4 +196,40 @@ public class BookRepository {
         }
         return searchBooks;
     }
+
+
+    // 메서드 7.
+    private int indexOfBookId(int bookId) {
+
+        int findIndex = -1;
+
+        for (int i = 0; i < books.length; i++) {
+            if(books[i].getBookId() == bookId) { // 왜 equals 안쓰꼬 ??? int 니까 ??
+                findIndex = 1;
+                break;
+            }
+        }
+
+        return findIndex;
+    }
+
+
+    // 메서드 8. 도서 삭제
+    // 방법 : books[]에서 찾는 인덱스만 빼고 나머지들 이사 해주기
+    public void deleteBookByBookId(int bookId) {
+
+        int findIndex = indexOfBookId(bookId);
+
+        BookEntity[] newBooks = new BookEntity[books.length - 1]; // books[]보다 하나 작은 newBooks[] 배열 생성
+
+        for (int i = 0; i < newBooks.length; i++) {
+            if (i < findIndex) {
+                newBooks[i] = books[i];
+                continue;
+            }
+            newBooks[i] = books[i + 1];
+        }
+        books = newBooks;
+    }
 }
+

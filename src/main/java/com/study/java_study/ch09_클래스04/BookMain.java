@@ -8,7 +8,7 @@ public class BookMain {
 
         System.out.println("프로그램을 실행합니다.");
 
-        while (bookService.run()) {}
+        while (bookService.run()) {} // 돌때마다 run 메소드 호출 !
 
         System.out.println("프로그램을 종료합니다.");
 

@@ -19,6 +19,9 @@ public class ColorMain {
          */
 
         // 이거
+        // colors 라는 이름의 배열을 만든다 > 자료형은 Color[] > 객체 Color[5]
+        // 자료형 변수명 = new 객체;
+        // 생성자로 가져와서 넣기 public
         Color[] colors = new Color[5]; // 배열 객체 생성 Color 를 가져다 쓰겠다
         colors[0] = new Color("#CA848A", "Brandied Apricot"); //String 이라서 ""
         colors[1] = new Color("#FFBE98", "Peach Fuzz");
@@ -35,13 +38,12 @@ public class ColorMain {
                 new Color("#EEE", "e"),
         };
 
-
          /* for (int i=0; i < colors.length; i++) {
             colors[i].printInfo();
             System.out.println();
         }*/
 
-        // colors배열을 color 클래스 안에 있는 printInfo 를 해라
+        // colors 배열을 color 클래스 안에 있는 printInfo 를 해라
          for (Color color : colors) {
              color.printInfo();
              System.out.println();

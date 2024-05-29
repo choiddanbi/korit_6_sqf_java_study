@@ -1,5 +1,6 @@
 package com.study.java_study.ch09_클래스04;
 
+// 정보 하나하나
 public class BookEntity { // 정보 클래스
     private int bookId;
     private String bookName;

@@ -1,7 +1,5 @@
 package com.study.java_study.ch06_배열;
 
-import javax.crypto.spec.PSource;
-
 public class ArrayMain03 {
 
     // 배열 사용 이유 : 반복문을 위해 + 관련된 데이터들을 하나로 묶기 위해서
@@ -49,15 +47,13 @@ public class ArrayMain03 {
             System.out.println(dnum);
         }
 
-        Computer[] computers = new Computer[3]; // 배열 객체 생성
-        computers[0] = new Computer("13", "8GB");
-        computers[1] = new Computer("15", "10GB");
-        computers[2] = new Computer("17", "12GB");
+        Computer[] computers = new Computer[3]; // 배열 객체 생성 Computer클래스 가져다 쓰겠다
+        computers[0] = new Computer("i3", "8GB");
+        computers[1] = new Computer("i5", "10GB");
+        computers[2] = new Computer("i7", "12GB");
 
         for (Computer computer : computers) {
-            System.out.println(computer);
+            System.out.println(computer.toString());
         }
-
     }
-
 }
