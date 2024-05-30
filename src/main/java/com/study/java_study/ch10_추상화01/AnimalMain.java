@@ -3,7 +3,7 @@ package com.study.java_study.ch10_추상화01;
 public class AnimalMain {
     public static void main(String[] args) {
         Dog dog = new Dog("콩이", 11, "말티즈"); // 객체 생성 >> Animal 객체 생성 + Dog 객체도 생성됨 // Animal 이 엄마니가 !
-        Animal tiger = new Tiger("웅이", 5, 100);
+        Animal tiger = new Tiger("웅이", 5, 100); // 업캐스팅 : 자식 -> 부모
 
         // Animal tiger = new Tiger("웅이", 5, 100); // 업캐스팅 : 자식 -> 부모
         // Animal : 자료형
@@ -12,7 +12,7 @@ public class AnimalMain {
 
         dog.move();
         tiger.move();
-        // tiger.hunt(); >> Animail 로 업캐스팅 되어있어서 hunt 못씀
+        // tiger.hunt(); >> Animal 로 업캐스팅 되어있어서 hunt 못씀
         ((Tiger)tiger).hunt(); // tiger 객체의 자료형을 Tiger로 다운캐스팅 해서 hunt 써줘야함
         dog.bark();
 

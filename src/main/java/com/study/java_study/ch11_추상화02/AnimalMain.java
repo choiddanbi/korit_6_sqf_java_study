@@ -2,6 +2,8 @@ package com.study.java_study.ch11_추상화02;
 
 public class AnimalMain {
     public static void main(String[] args) {
+        // Animal a = new Animal(); // 안됨 ! Animal 이 추상클래스니까 생성안됨
+
         Animal[] animals = new Animal[10];
 
         for(int i = 0; i < animals.length; i++) {
