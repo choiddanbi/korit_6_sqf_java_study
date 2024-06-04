@@ -9,6 +9,7 @@ import java.util.List;
 public class StringArrayListMain {
     public static void main(String[] args) {
 
+        // 자료형<리턴타입> 변수명 = new 자료형<>();
         // ArrayList 생성
         ArrayList<String> strList = new ArrayList<>(); // ArrayList 자료형인 ArrayList<>() 생성
         // 이렇게 생략도 가능! new ArrayList<String>();
@@ -22,7 +23,7 @@ public class StringArrayListMain {
         // [ 배열 <-> ArrayList ]
         // Arrays.asList() : 배열을 리스트로 변환
         // List인 list 생성
-        List<String> list = Arrays.asList(strArray); // 배열 -> List 로, strArray 가 String = 매개변수사용,,? 제네릭이 String, List 자료형인 ArrayList<>() 만들음, (list)
+        List<String> list = Arrays.asList(strArray); // 배열 -> List 로, strArray 가 String = 매개변수사용,,?
         ArrayList<String> list2 = new ArrayList<>(); // ArrayList인 ArrayList<>() 생성 (list2)
         list2.addAll(list); // list 들을 list2에 다 넣겠따
         strList.toArray(new String[strList.size()]); // ArrayList -> 배열로, > String 리턴, strList 크기 만큼! > strList를 새로 만든 new String[strList.size()] 배열로 !!
@@ -33,10 +34,10 @@ public class StringArrayListMain {
         // 리스트 값 조회
         System.out.println(strList); // strList 주소가 떠야하는데 오버라이딩 되어진 toString이 호출됨!
 
-        // contains : 포함 + 조회
+        // contains : 포함
         System.out.println(strList.contains("test1")); // strList 가 test1 문자열을 포함하고있닝 ? > true
 
-        // 리스트 바로 생성 > ArrayList 쓰고싶으면 add로..?
+        // 리스트 바로 생성 : List.of> ArrayList 쓰고싶으면 add로..?
         List<Integer> nums = List.of(1,2,3,4,5);
         System.out.println(nums);
 

@@ -21,7 +21,8 @@ public interface Authority {
     // public abstract 가 생략
     // public abstract String getAuthority();
     // (); 면 abstrct 고, {} 면 메소드다
-    // 추상클래스 ? 메소드 ?
+    // 추상메소드
+    // 자료형 메소드명();
     String getAuthority();
 
     // public 가 생략

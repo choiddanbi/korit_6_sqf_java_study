@@ -46,6 +46,7 @@ public class StringHashMapMain {
         // entrySet() 메소드! Map -> Set 바꾸고, Set 자료형 안에 Entry들을 넣음
         // 즉, entries 는 entry 들 모음
         // Set : 순서 X, 중복 허용 X
+        // lang 전체 key와 value 꺼내기 > Set<Map.Entry<String, String>> 안에 객체들을 entries로 바꾼더ㅏ,,? > SET에 저장
         Set<Map.Entry<String, String>> entries = lang.entrySet(); // Map.Entry<String, String> 는 엔트리, Set<Map.Entry<String, String>> 는 엔트리스
         for (Map.Entry<String, String> entry: entries) { // Map자료형인 lang, Map자료형을 Entry자료형으로 바꾸줘야함, ( k,v = entry, 엔트리들 = set )
             System.out.println("key: " + entry.getKey());

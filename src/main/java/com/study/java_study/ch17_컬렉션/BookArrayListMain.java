@@ -1,11 +1,12 @@
 package com.study.java_study.ch17_컬렉션;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 // List<E> 예제 : 인터페이스
-public class BoolArrayListMain {
+public class BookArrayListMain {
     public static void main(String[] args) {
 
         // 프로그램 시작
@@ -42,9 +43,9 @@ public class BoolArrayListMain {
         for(int i = 0; i < 3; i++) {
             String bookName;
             String author;
-            System.out.println("도서명 : ");
+            System.out.print("도서명 : ");
             bookName = scanner.nextLine();
-            System.out.println("저자명 : ");
+            System.out.print("저자명 : ");
             author = scanner.nextLine();
 
             // 추가 add
